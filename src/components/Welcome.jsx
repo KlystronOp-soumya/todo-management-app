@@ -7,7 +7,7 @@ const Welcome = () =>{
     return(
         <div className="welcomeContainer">
             <h3>Welcome {userName}</h3>
-            <h4>Manage your todos - </h4> <Link to="/todos" /> 
+            <h4>Manage your todos - </h4> <Link to="/todos"> Go Here </Link> 
         </div>
 
     )

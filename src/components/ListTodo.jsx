@@ -12,22 +12,22 @@ const ListTodo = () => {
                         <tr>
                             <td>id</td>
                             <td>description</td>
-                            <td>Is Done</td>
+                            <td>Done</td>
                             <td>Completion date</td>
                         </tr>
                     </thead>
                     <tbody>
                         {
                             todoList.map(
-                                (eachTodo) => {
+                                eachTodo => (
                                     <tr key={eachTodo.id}>
                                     <td>{eachTodo.id}</td>
                                     <td>{eachTodo.description}</td>
-                                    <td>{eachTodo.done}</td>
-                                    <td>{eachTodo.targetDate}</td>
+                                    <td>{eachTodo.done.toString()}</td>
+                                    <td>{eachTodo.targetDate.toDateString()}</td>
                                 </tr>
-                                }
-                            )
+                                )
+                            ) 
                         }
                        
                     </tbody>
