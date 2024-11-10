@@ -4,7 +4,7 @@ import { AuthContext } from "../Context/AuthContext";
 
 const Welcome = () =>{
 
-    const {userName} = useParams() ;
+    const {userName} = useParams() ; //to use the RequestParams
     const auth = useContext(AuthContext) ;
     console.log(auth.number)
     return(
