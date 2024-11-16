@@ -1,10 +1,16 @@
-import { useState } from "react";
-import { AuthContext } from "../Context/AuthContext";
+import { createContext, useContext, useState } from "react";
+//import { AuthContext } from "../Context/AuthContext";
+
+// add the AuthContext and create a hook
+//1. Create context
+export const AuthContext = createContext() ;
+//2.create a hook
+export const useAuth = () => useContext(AuthContext) ;
 
 const AuthProvider = ({children}) => {
 
     const [number , setNumber] = useState(1) ;
-
+    
     //to check if the AuthContext is updating
     function updateNumber()
     {
@@ -15,7 +21,7 @@ const AuthProvider = ({children}) => {
     
     return(
         <AuthContext.Provider value={ {number}  }>
-            {children}
+            {children} {/* Passesd down to the children */}
         </AuthContext.Provider>
     )
 
