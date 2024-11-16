@@ -15,7 +15,7 @@ const ToDoApp = ()=>{
             {/* <Login/>
             <Welcome/> */}
             <BrowserRouter>
-            <Header />
+            <Header />{/* Header component */}
                 <Routes>
                     <Route path='/' element={ <Login /> } />
                     <Route path='/login' element={ <Login /> } />
@@ -24,7 +24,7 @@ const ToDoApp = ()=>{
                     <Route path='/todos' element={ <ListTodo />} />
                     <Route path='/error' element={<Error/>} />
                 </Routes>
-            <Footer/>
+            <Footer/> {/* Footer component */}
             </BrowserRouter>
         </div>
     )
