@@ -39,6 +39,7 @@ const AuthProvider = ({children}) => {
         //logic extracted from Login component
         setAuthenticated(false) ;
     }
+    //json object creation -- short hand
     const securityContextHolder = {number , isAuthenticated , login , logout} ;
     
     
