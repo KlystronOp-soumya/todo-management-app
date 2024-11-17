@@ -1,17 +1,19 @@
 import { useState } from "react";
 //add navigate hook to navigate to the error page
 import { useNavigate } from "react-router-dom";
+import { useAuth } from "../Authentication/AuthProvider";
 
 const Login = () => {
-    
+    //get the AuthContext
+    const authContext = useAuth() ;
     //hook for naviagtion
     const navigate = useNavigate() ;
     //add state for the username
-    const [userName , setUserName] = useState('USERNAME') ;
+    const [userName , setUserName] = useState('') ;
     // add state for the password
-    const[userPassword , setUserPassword] = useState('PASSWORD') ;
+    const[userPassword , setUserPassword] = useState('') ;
     // add state for messages
-    const [showSuccessMessage , setShowSuccessMessage] = useState(false) ;
+    // const [showSuccessMessage , setShowSuccessMessage] = useState(false) ; //not required
     const [showFailureMessage , setShowFailureMessage] = useState(false) ;
     const handleUserNameChange = (event)=>{
         //console.log(event.target.value) ;
@@ -22,25 +24,19 @@ const Login = () => {
         setUserPassword(event.target.value) ;
     }
     const handleLogInSubmit = ()=>{
-        //console.log(userName) ;
-        //console.log(userPassword) ;
-        if(userName === '123' && userPassword === '123')
+        if(authContext.login(userName , userPassword)) //these are set using the hook
         {
-            setShowSuccessMessage(true) ;
-            setShowFailureMessage(false) ;
-            console.debug("Navigating to welcome") ;
+            console.log("successfully authenticated");
             navigate(`/welcome/${userName}`)
         }
         else
         {
-            setShowSuccessMessage(false) ;
             setShowFailureMessage(true) ;
             console.debug("Navigating to error") ;
             navigate("/error");
         }
     }
-    return (
-        
+    return (   
         <div className="loginContainer">
             {/*
                 Alternative
@@ -53,9 +49,9 @@ const Login = () => {
 
              */}
             <div className="messageContainer" id="loginSuccessMessageContainer" >
-            <div className="successMessageContainer">
+           {/*  <div className="successMessageContainer">
                 <span hidden={!showSuccessMessage}>Login Successful</span>
-            </div>
+            </div> */}
             <div className="failureMessageContainer">
                 <span hidden={!showFailureMessage}>Login Failed</span>
             </div>
