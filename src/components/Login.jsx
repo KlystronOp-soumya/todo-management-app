@@ -4,9 +4,9 @@ import { useNavigate } from "react-router-dom";
 import { useAuth } from "../Authentication/AuthProvider";
 
 const Login = () => {
-    //get the AuthContext
+    //1. get the AuthContext
     const authContext = useAuth() ;
-    //hook for naviagtion
+    //2.hook for naviagtion
     const navigate = useNavigate() ;
     //add state for the username
     const [userName , setUserName] = useState('') ;
