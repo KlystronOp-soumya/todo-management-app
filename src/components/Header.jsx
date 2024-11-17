@@ -6,6 +6,10 @@ const Header = () => {
     const authContext = useAuth() ;
     const isAuthenticated = authContext.isAuthenticated ;
 
+    function handleLogOut(event) {
+        authContext.setAuthenticated(false) ;
+    }
+
     return (
         <header className="border-bottom border-light border-5 mb-5 p-2">
         <div className="container">
@@ -22,7 +26,7 @@ const Header = () => {
                     { !isAuthenticated && /* If not  authenticated */
                     <li className="nav-item fs-5"><Link className="nav-link" to="/login">Login</Link></li> }
                     { isAuthenticated &&  
-                    <li className="nav-item fs-5"><Link className="nav-link" to="/logout">Logout</Link>
+                    <li className="nav-item fs-5"><Link className="nav-link" to="/logout" onClick={handleLogOut}>Logout</Link>
                     </li> }
                     </ul>
                 </nav>
