@@ -7,7 +7,7 @@ const Header = () => {
     const isAuthenticated = authContext.isAuthenticated ;
 
     function handleLogOut(event) {
-        authContext.setAuthenticated(false) ;
+       authContext.logout() ;
     }
 
     return (
